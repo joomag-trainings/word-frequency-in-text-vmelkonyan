@@ -7,8 +7,7 @@
  */
 
 $text = file_get_contents('article.txt');
-$infoArr;
-
+$infoArr = [];
 $text = preg_split('/[,.\s;]+/', $text);
 $text = array_map('strtolower', $text);
 
@@ -25,8 +24,6 @@ for ($i = 0; $i < sizeof($text); $i++) {
         }
     }
 }
-
-
 ?>
 
 
@@ -41,7 +38,6 @@ for ($i = 0; $i < sizeof($text); $i++) {
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Number');
             data.addColumn('number', 'Words');
@@ -61,13 +57,9 @@ for ($i = 0; $i < sizeof($text); $i++) {
             chart.draw(data, options);
         }
     </script>
-
-
 </head>
 <body>
     <div id="chart_div"></div>
-
-
 </body>
 </html>
 
